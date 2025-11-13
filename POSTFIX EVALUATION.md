@@ -32,12 +32,53 @@ To write a Python program to evaluate a user-given Postfix expression that conta
 ### PROGRAM
 
 ```
+# Reg.No: 212223060057
+# Name: DINESH KUMAR A
+# Program to evaluate a Postfix Expression using Stack
+
+OPERATORS = set(['*', '+', '-', '/', '%', '**'])
+
+def evaluate_postfix(exp):
+    stack = []
+    for item in exp:
+        if item not in OPERATORS:
+            stack.append(int(item))
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            if item == '+':
+                result = b + a
+            elif item == '-':
+                result = b - a
+            elif item == '*':
+                result = b * a
+            elif item == '/':
+                result = b / a
+            elif item == '%':
+                result = b % a
+            elif item == '**':
+                result = b ** a
+            stack.append(result)
+    return stack[0]
+
+# Input from user
+exp = input("Enter the postfix expression separated by spaces: ").split()
+
+print("Postfix Expression:", exp)
+print("Evaluated Result:", evaluate_postfix(exp))
 
 
 ```
 
 ### OUTPUT
+```
+Enter the postfix expression separated by spaces: 5 3 + 2 *
+Postfix Expression: ['5', '3', '+', '2', '*']
+Evaluated Result: 16
+
+```
 
 
 ### RESULT
+Thus, the Python program to evaluate a Postfix expression using the stack concept was successfully executed and verified.
 
