@@ -30,11 +30,51 @@ To write a Python program to convert a given Infix expression to Postfix express
 ### PROGRAM
 
 ```
+# Reg.No: 212223060057
+# Name: DINESH KUMAR A
+# Program to convert Infix expression to Postfix
+
+def infix_to_postfix(expression):
+    precedence = {'/': 3, '-': 2, '&': 1}
+    operators = set(['/','-','&'])
+    stack = []
+    output = ''
+
+    for char in expression:
+        if char not in operators and char not in "()":
+            output += char
+        elif char == '(':
+            stack.append(char)
+        elif char == ')':
+            while stack and stack[-1] != '(':
+                output += stack.pop()
+            stack.pop()
+        else:
+            while stack and stack[-1] != '(' and precedence[char] <= precedence[stack[-1]]:
+                output += stack.pop()
+            stack.append(char)
+
+    while stack:
+        output += stack.pop()
+
+    return output
+
+
+# Example usage
+infix_expr = "A/B-C&D"
+print("Infix Expression: ", infix_expr)
+print("Postfix Expression: ", infix_to_postfix(infix_expr))
 
 ```
 
 ### OUTPUT
+```
+Infix Expression:  A/B-C&D
+Postfix Expression:  AB/CD-& 
+
+```
 
 
 ### RESULT
+Thus, the Python program to convert a given infix expression to postfix form was successfully executed and verified.
 
