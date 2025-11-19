@@ -36,38 +36,23 @@ Consider the names of the tower pegs as A, B, C. Get the number of disks value f
 # Name: DINESH KUMAR A
 # Program to implement Tower of Hanoi using recursion
 
-def TowerOfHanoi(n, source, destination, auxiliary):
-    if n == 1:
-        print(f"Move disk 1 from {source} to {destination}")
-        return
-    TowerOfHanoi(n - 1, source, auxiliary, destination)
-    print(f"Move disk {n} from {source} to {destination}")
-    TowerOfHanoi(n - 1, auxiliary, destination, source)
+def TowerOfHanoi(n , source, destination, auxiliary):
+	
+	if(n>0):
+	    TowerOfHanoi(n-1, source, auxiliary, destination)
+	    print ("Move disk from",source,"to",destination)
+	    TowerOfHanoi(n-1, auxiliary, destination, source)
 
-# Input from user
-n = int(input("Enter the number of disks: "))
-print(f"\nThe sequence of moves involved in the Tower of Hanoi with {n} disks is:\n")
-TowerOfHanoi(n, 'A', 'C', 'B')
+n=int(input())		
+print("No. of disks =",n)
+#TowerOfHanoi(n,'A','C','B')
 
 
 ```
 
 ### OUTPUT
-```
-Enter the number of disks: 3
+<img width="1010" height="799" alt="image" src="https://github.com/user-attachments/assets/55ae350c-4a44-4d5c-9403-ae82a7d9aa4c" />
 
-The sequence of moves involved in the Tower of Hanoi with 3 disks is:
-
-Move disk 1 from A to C
-Move disk 2 from A to B
-Move disk 1 from C to B
-Move disk 3 from A to C
-Move disk 1 from B to A
-Move disk 2 from B to C
-Move disk 1 from A to C
-
-
-```
 
 
 ### RESULT
