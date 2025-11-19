@@ -31,48 +31,22 @@ To write a Python program to implement a stack using a list and its built-in met
 # Name: DINESH KUMAR A
 # Program to implement Stack using list
 
-class st:
-    def __init__(self):
-        self.stack = []
-
-    def push(self, num):
-        self.stack.append(num)
-
-    def pop(self):
-        if len(self.stack) == 0:
-            return "Stack is empty!"
-        else:
-            return self.stack.pop()
-
-# Create stack object
-s = st()
-
-# Input stack size
-size = int(input("Enter the size of the stack: "))
-
-# Push odd numbers into the stack
-for i in range(1, size + 1):
-    if i % 2 != 0:
-        s.push(i)
-
-print("Stack elements after pushing odd numbers:", s.stack)
-
-# Pop the top element
-popped = s.pop()
-print("Popped element:", popped)
-
-# Display remaining stack elements
-print("Stack after popping:", s.stack)
+stack = []
+for i in range (5):
+    a=input()
+    stack.append(a)
+print("Stack before elements are popped")
+print(stack)
+print()
+for i in range(2):
+    stack.pop()
+print('Stack after elements are popped:')
+print(stack)
 
 ```
 OUTPUT
-```
-Enter the size of the stack: 7
-Stack elements after pushing odd numbers: [1, 3, 5, 7]
-Popped element: 7
-Stack after popping: [1, 3, 5]
+<img width="1145" height="300" alt="image" src="https://github.com/user-attachments/assets/249af1df-78a4-42b0-bbc5-add39a0c7f15" />
 
-```
 
 RESULT
 
