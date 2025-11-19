@@ -32,49 +32,47 @@ To write a Python program to evaluate a user-given Prefix expression using a sta
 # Name: DINESH KUMAR A
 # Program to evaluate a Prefix Expression using Stack
 
-OPERATORS = set(['*', '+', '-', '/', '%', '**'])
+OPERATORS=set(['*','-','+','%','/','**']) 
 
-def evaluate_prefix(expression):
-    stack = []
-    # Traverse from right to left
-    for item in reversed(expression):
-        if item not in OPERATORS:
-            stack.append(int(item))
-        else:
-            a = stack.pop()
-            b = stack.pop()
-            if item == '+':
-                result = a + b
-            elif item == '-':
-                result = a - b
-            elif item == '*':
-                result = a * b
-            elif item == '/':
-                result = a / b
-            elif item == '%':
-                result = a % b
-            elif item == '**':
-                result = a ** b
-            stack.append(result)
-    return stack[0]
+def evaluate(expression):
+	
+	stack = []
 
-# Input from user
-exp = input("Enter the prefix expression separated by spaces: ").split()
 
-print("Prefix Expression:", exp)
-print("Evaluated Result:", evaluate_prefix(exp))
+	for c in expression[::-1]:
+
+		
+		if c not in OPERATORS:
+			stack.append(int(c))
+
+		else:
+			
+			
+			o1 = stack.pop()
+			o2 = stack.pop()
+
+			if c == '+':
+				stack.append(o1 + o2)
+
+			elif c == '-':
+				stack.append(o1 - o2)
+
+			elif c == '*':
+				stack.append(o1 * o2)
+
+			
+	return stack.pop()
+test_expression = input()
+print("Prefix Expression :",test_expression)
+print("Evaluation result :",evaluate(test_expression))
 
 
 ```
 
 
 ### OUTPUT
-```
-Enter the prefix expression separated by spaces: + 5 * 3 2
-Prefix Expression: ['+', '5', '*', '3', '2']
-Evaluated Result: 11
+<img width="765" height="239" alt="image" src="https://github.com/user-attachments/assets/13e5cb0e-5a56-4903-92be-5cfed03702a2" />
 
-```
 
 
 
