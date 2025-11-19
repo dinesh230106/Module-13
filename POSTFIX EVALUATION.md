@@ -35,48 +35,36 @@ To write a Python program to evaluate a user-given Postfix expression that conta
 # Reg.No: 212223060057
 # Name: DINESH KUMAR A
 # Program to evaluate a Postfix Expression using Stack
+OPERATORS=set(['*','+']) 
 
-OPERATORS = set(['*', '+', '-', '/', '%', '**'])
 
-def evaluate_postfix(exp):
-    stack = []
-    for item in exp:
-        if item not in OPERATORS:
-            stack.append(int(item))
+def evaluate_postfix(expression):
+    stack=[] 
+    for i in expression:
+        if i not in OPERATORS:
+            stack.append(i)  
+        
         else:
-            a = stack.pop()
-            b = stack.pop()
-            if item == '+':
-                result = b + a
-            elif item == '-':
-                result = b - a
-            elif item == '*':
-                result = b * a
-            elif item == '/':
-                result = b / a
-            elif item == '%':
-                result = b % a
-            elif item == '**':
-                result = b ** a
-            stack.append(result)
+            a=stack.pop()  
+            b=stack.pop()
+        
+            if i=='+':
+                res=int(b)+int(a)  
+            elif i=='*':
+                res=int(b)*int(a)
+            
+            stack.append(res) 
     return stack[0]
 
-# Input from user
-exp = input("Enter the postfix expression separated by spaces: ").split()
-
-print("Postfix Expression:", exp)
-print("Evaluated Result:", evaluate_postfix(exp))
-
+expression = input()
+print('postfix expression: ',expression)
+print('Evaluation result: ',evaluate_postfix(expression))
 
 ```
 
 ### OUTPUT
-```
-Enter the postfix expression separated by spaces: 5 3 + 2 *
-Postfix Expression: ['5', '3', '+', '2', '*']
-Evaluated Result: 16
+<img width="790" height="183" alt="image" src="https://github.com/user-attachments/assets/60ee8ee1-5b74-4cdd-b989-cd219f940690" />
 
-```
 
 
 ### RESULT
